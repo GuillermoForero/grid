@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tamaño item en filas</title>
+    <style>
+        body{
+            font-family: Arial;
+        }
+        .container{
+            display: grid;
+            height: 100vh;
+            grid-template-columns: [inicio] 1fr [linea2] 1fr [linea3] 1fr [linea4] 1fr [linea5] 1fr [linea6] 1fr [linea7] 1fr [final];
+            grid-template-rows: [inicio] 200px [medio] 200px [final];
+            grid-gap: 5px  50px;
+            grid-auto-flow: column;
+        }
+        .item{
+            background: lightblue;
+            padding: 10px;
+            border: 1px solid red;
+        }
+        .item:nth-of-type(1){
+            /*background: blue;*/
+            grid-column: inicio / final;
+            grid-row: 1 / span 2;
+        }
+        .item:nth-of-type(2){
+            /*background: blue;*/
+            grid-column: 1 / span 3;
+            grid-row: 3 / span 2;
+        }
+        .item:nth-of-type(3){
+            /*background: blue;*/
+            grid-column: 4 / span 2;
+            grid-row: 3 / span 2;
+        }
+        .item:nth-of-type(4){
+            /*background: blue;*/
+            grid-column: 6 / span 2;
+            grid-row: 3 / span 1;
+        }
+        .item:nth-of-type(5){
+            /*background: blue;*/
+            grid-column: 6 / span 2;
+            grid-row: 4 / span 1;
+            display: grid;
+            grid-template: 1fr / repeat(2, 1fr);
+        }
+        .subitem{
+            background: deeppink;
+            border: 1px solid blue;
+        }
+        .subitem:nth-of-type(1){
+            grid-column: 1 / span 1;
+        }
+        .subitem:nth-of-type(2){
+            grid-column: 2 / span 1;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="item">item #1</div>
+        <div class="item">item #2</div>
+        <div class="item">item #3</div>
+        <div class="item">item #4</div>
+        <div class="item">
+            <div class="subitem">subitem #1</div>
+            <div class="subitem">subitem #2</div>
+        </div>
+    </section>
+</body>
+</html>
